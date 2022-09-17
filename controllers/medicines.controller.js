@@ -5,6 +5,18 @@ module.exports.medicinesController = {
     const medicines = await Medicines.find().populate('category')
     res.json(medicines)
   },
+  get2Medicines: async (req, res) => {
+    const medicines = await Medicines.find({
+      category: req.params.id,
+    }).populate('category')
+    res.json(medicines)
+  },
+  get3Medicines: async (req, res) => {
+    const medicines = await Medicines.findById(req.params.id).populate(
+      'category'
+    )
+    res.json(medicines)
+  },
   postMedicines: async (req, res) => {
     const { medicine, total, category } = req.body
     const medicines = await Medicines.create({

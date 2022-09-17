@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const clientSchema = {
   client: String,
+  recipe: Boolean,
   cTotal: Number,
   basket: [
     {
